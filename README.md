@@ -14,15 +14,13 @@ El Proyecto Registro Clínico Electrónico es una aplicación desarrollada con D
 
 • Registrar nuevos deportistas y nuevos kinesiologos para generar una atención con su respectiva información. 
 
-• Utilizar una marca o un "check" de verificación para señalar las actividades completadas por el usuario.
 
-• Eliminar las actividades seleccionadas por el usuario.
 
 
 ## Requerimientos y otros detalles:
 
 •	Antes de ejecutar el proyecto, asegúrate de tener Django instalado y de haber configurado una base de datos PostgrestSql. Puedes encontrar instrucciones de instalación y configuración en la documentación oficial de Django.
 
-• Para visualizar la pagina ingresar en el siguiente link de vercel:https://todos-omega-seven.vercel.app/?vercelToolbarCode=ZYavaT54cRavlpf
+• Para visualizar la pagina ingresar en el siguiente link de vercel:[https://todos-omega-seven.vercel.app/?vercelToolbarCode=ZYavaT54cRavlpf](https://rce-red.vercel.app)https://rce-red.vercel.app
 
 
