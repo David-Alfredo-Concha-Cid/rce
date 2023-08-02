@@ -9,6 +9,9 @@
 
 
 
+
+## Descripción:
+
 El Proyecto Registro Clínico Electrónico es una aplicación desarrollada con Django que permite brindar atención médica especializada y centralizada a los deportistas, enfocándose desde el punto de vista deportivo. Con esta plataforma, es posible generar registros clínicos electrónicos y gestionar el seguimiento y tratamiento de los deportistas de manera eficiente.
 ##	Objetivos:
 
