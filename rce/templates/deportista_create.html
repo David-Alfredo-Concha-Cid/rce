@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deportistas</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Deportistas</h1> <!-- Add the title here -->
+        <form method="POST" class="horizontal-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.nombre.id_for_label }}">Nombre:</label>
+                <div class="input-field">
+                    {{ form.nombre }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.edad.id_for_label }}">Edad:</label>
+                <div class="input-field">
+                    {{ form.edad }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.genero.id_for_label }}">Genero:</label>
+                <div class="input-field">
+                    {{ form.genero }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.deporte.id_for_label }}">Deporte:</label>
+                <div class="input-field">
+                    {{ form.deporte }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.direccion.id_for_label }}">Dirección:</label>
+                <div class="input-field">
+                    {{ form.direccion }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.telefono.id_for_label }}">Teléfono:</label>
+                <div class="input-field">
+                    {{ form.telefono }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+                <div class="input-field">
+                    {{ form.email }}
+                </div>
+            </div>
+            <button type="submit">Registrar</button>
+        </form>
+        <div class="back-button">
+            <a href="/Deportista/list/depor">Ir al registro de Deportistas</a>
+        </div>
+        <div class="back-button">
+            <a href="/">Volver al Menú</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -82,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'concha_rce',
-        'USER': 'concha_ admin_rce',
+        'USER': 'concha_admin_rce',
         'PASSWORD': 'rcedjango',
         'HOST': 'postgresql-concha.alwaysdata.net',
     }

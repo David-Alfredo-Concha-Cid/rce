@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kinesiólogo</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Kinesiólogos</h1> <!-- Add the title here -->
+        <form method="POST" class="horizontal-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.nombre.id_for_label }}">Nombre:</label>
+                <div class="input-field">
+                    {{ form.nombre }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.especialidad.id_for_label }}">Especialidad:</label>
+                <div class="input-field">
+                    {{ form.especialidad }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.direccion.id_for_label }}">País:</label>
+                <div class="input-field">
+                    {{ form.direccion }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.telefono.id_for_label }}">Teléfono:</label>
+                <div class="input-field">
+                    {{ form.telefono }}
+                </div>
+            </div>
+            <button type="submit">Registrar</button>
+        </form>
+        <div class="back-button">
+            <a href="list/kine">Ir al registro de Kinesiologos</a>
+        </div>
+        <div class="back-button">
+            <a href="/">Volver al Menú</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

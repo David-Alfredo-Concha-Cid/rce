@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Información de los deportistas registrados</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <header><h1>Información de los deportistas registrados</h1></header>
+    <nav><a href="/deportista/depor">Registrar nuevo deportista --></a></nav>
+    <nav><a href="/">Volver al Menú --></a></nav>
+    <main>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Genero</th>
+                    <th>Deporte</th>
+                    <th>Dirección</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in depor %}
+                <tr>
+                    <td>{{ d.nombre }}</td>
+                    <td>{{ d.edad }}</td>
+                    <td>{{ d.genero }}</td>
+                    <td>{{ d.deporte }}</td>
+                    <td>{{ d.direccion }}</td>
+                    <td>{{ d.telefono }}</td>
+                    <td>{{ d.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer><!-- Puedes añadir información adicional en el footer si lo deseas --></footer>
+</body>
+</html>
