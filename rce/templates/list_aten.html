@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Historial</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <header><h1>Historial de las atenciones del RCE</h1></header>
+    <nav><a href="/">Volver al Menú --></a></nav>
+    <main>
+        <button id="download-pdf">Descargar PDF</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Kinesiólogo</th>
+                    <th>Deportista</th>
+                    <th>Fecha Atención</th>
+                    <th>Diagnóstico</th>
+                    <th>Ejercicios</th>
+                    <th>Observaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in aten %}
+                <tr>
+                    <td>{{ a.kinesiologo }}</td>
+                    <td>{{ a.deportista }}</td>
+                    <td>{{ a.fecha_atencion }}</td>
+                    <td>{{ a.diagnostico }}</td>
+                    <td>{{ a.ejercicios }}</td>
+                    <td>{{ a.observaciones }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer><!-- Puedes añadir información adicional en el footer si lo deseas --></footer>
+    <script>
+        document.getElementById("download-pdf").addEventListener("click", function () {
+            const element = document.querySelector(".table");
+            const opt = {
+                margin: 10,
+                filename: "historial_atenciones.pdf",
+                image: { type: "jpeg", quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+            };
+            
+            html2pdf().from(element).set(opt).save();
+        });
+    </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from config.forms import KinesiologoForm, DeportistaForm
+from config.forms import KinesiologoForm, DeportistaForm, TratamientoForm
 from django.http import HttpResponseRedirect, Http404
-from .models import Kinesiologo, Deportista
+from .models import Kinesiologo, Deportista, Tratamiento
 
 
 # Create your views here.
@@ -54,11 +54,26 @@ def deportista_listar(request):
     return render(request, "list_depor.html", context)
 
 
-def atencion(request):
-    context = {}
-    return render(request, "atencion.html", context)
+
+
+def atencion_create(request):
+    if request.method == 'POST':
+        form = TratamientoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+
+    context2 = {
+        'form': TratamientoForm()
+    }
+    return render(request, "atencion_create.html", context2)
 
 
 
 
+def tratamiento_listar(request):
+    context = {
+      'aten': Tratamiento.objects.all()
+    }
+    return render(request, "list_aten.html", context)
 

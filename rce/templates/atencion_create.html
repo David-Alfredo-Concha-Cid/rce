@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Atención</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#fecha_atencion").datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Atención</h1>
+        <form method="POST" class="vertical-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.kinesiologo.id_for_label }}">Kinesiolgo:</label>
+                <div class="input-field">
+                    {{ form.kinesiologo }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.deportista.id_for_label }}">Deportista:</label>
+                <div class="input-field">
+                    {{ form.deportista }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.fecha_atencion.id_for_label }}">Fecha de atención:</label>
+                <div class="input-field">
+                    <input type="text" id="fecha_atencion" name="fecha_atencion" value="{{ form.fecha_atencion.value }}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.diagnostico.id_for_label }}">Diagnóstico:</label>
+                <div class="input-field">
+                    {{ form.diagnostico }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.ejercicios.id_for_label }}">Ejercicios:</label>
+                <div class="input-field">
+                    {{ form.ejercicios }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.observaciones.id_for_label }}">Observaciones:</label>
+                <div class="input-field">
+                    {{ form.observaciones }}
+                </div>
+            </div>
+            <button type="submit">Guardar</button>
+        </form>
+        <div class="back-button">
+            <a href="/">Volver al Menú</a>
+        </div>
+    </div>
+</body>
+</html>
