@@ -22,12 +22,12 @@ class Deportista(models.Model):
         return self.nombre
 
 class Tratamiento(models.Model):
-    kinesiologo = models.ForeignKey(Kinesiologo, on_delete=models.PROTECT)
-    deportista = models.ForeignKey(Deportista, on_delete=models.PROTECT)
+    kinesiologo = models.ForeignKey(Kinesiologo, on_delete=models.SET_NULL, null=True)
+    deportista = models.ForeignKey(Deportista, on_delete=models.SET_NULL, null=True)
     fecha_atencion = models.DateField()
-    diagnostico = models.TextField()
-    ejercicios = models.TextField()
-    observaciones = models.TextField()
-
+    diagnostico = models.TextField(null=True)
+    ejercicios = models.TextField(null=True)
+    observaciones = models.TextField(null=True)
+    
     def __str__(self):
         return f"Tratamiento de {self.kinesiologo} a {self.deportista} el {self.fecha_atencion}"

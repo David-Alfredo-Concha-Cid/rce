@@ -5,37 +5,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Menú</title>
+    <title>Menú Principal</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <h1>Registro Clinico Deportivo</h1>
 </head>
 <body>
     <div class="menu">
         <ul>
+            <li><a href="#" onclick="mostrarContenido('agenda')">Agenda</a></li>
             <li><a href="atencion/atencion" onclick="mostrarContenido('atencion')">Atención</a></li>
-            <li><a href="deportista/depor" onclick="mostrarContenido('deportista')">Deportista</a></li>
-            <li><a href="kinesiologo/kine" onclick="mostrarContenido('kinesiologo')">Kinesiólogo</a></li>
-            <li><a href="historial/historial" onclick="mostrarContenido('kinesiologo')">Historial</a></li>
+            <li><a href="deportista/depor" onclick="mostrarContenido('deportista')"> Registro de Deportista</a></li>
+            <li><a href="kinesiologo/kine" onclick="mostrarContenido('kinesiologo')">Registro de Kinesiólogo</a></li>
+            <li><a href="historial/historial" onclick="mostrarContenido('historial')">Historial de Atención</a></li>
+            <li><a href="#" onclick="mostrarContenido('historial agenda')">Historial de Agenda</a></li>
+            <li><a href="estadistica" onclick="mostrarContenido('modulo estadistico')">Estadistica</a></li>
+
             <!-- Puedes agregar más elementos de menú si lo deseas -->
         </ul>
     </div>
-
-    <!-- Contenido de la página -->
-    <div id="atencion" class="contenido">
-        <!-- Aquí puedes colocar el contenido relacionado con Atención -->
-        <!-- ... -->
-    </div>
-
-    <div id="deportista" class="contenido">
-        <!-- Aquí puedes colocar el contenido relacionado con Deportista -->
-        <!-- ... -->
-    </div>
-
-    <div id="kinesiologo" class="contenido">
-        <!-- Aquí puedes colocar el contenido relacionado con Kinesiólogo -->
-        <!-- ... -->
-    </div>
-
     <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>

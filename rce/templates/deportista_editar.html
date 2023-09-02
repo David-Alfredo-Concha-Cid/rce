@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h1>Actualizar datos de deportista</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Nombre:</th>
+                <td>{{ form.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Edad:</th>
+                <td>{{ form.edad }}</td>
+            </tr>
+            <tr>
+                <th>Genero:</th>
+                <td>{{ form.genero }}</td>
+            </tr>
+            <tr>
+                <th>Deporte:</th>
+                <td>{{ form.deporte }}</td>
+            </tr>
+            <tr>
+                <th>Dirección:</th>
+                <td>{{ form.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Telefono:</th>
+                <td>{{ form.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td>{{ form.email }}</td>
+            </tr>
+        </table>
+        <button type="submit" class="btn">Actualizar</button>
+    </form>
+
+    <section>
+        <a href="/Deportista/list/depor">Ir a registro de deportistas--></a>
+    </section>
+</body>
+</html>
+
+

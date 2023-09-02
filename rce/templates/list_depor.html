@@ -20,6 +20,8 @@
                     <th>Dirección</th>
                     <th>Telefono</th>
                     <th>Email</th>
+                    <th>Editar</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +34,8 @@
                     <td>{{ d.direccion }}</td>
                     <td>{{ d.telefono }}</td>
                     <td>{{ d.email }}</td>
+                    <td><a href="/deportista/{{ d.id }}/editar">Actualizar</a></td>
+                    <td><a href="/deportista/{{ d.id }}/delete">Eliminar</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

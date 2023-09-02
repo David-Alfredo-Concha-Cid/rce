@@ -17,6 +17,8 @@
                     <th>Especialidad</th>
                     <th>Dirección</th>
                     <th>Teléfono</th>
+                    <th>Editar</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +28,8 @@
                     <td>{{ k.especialidad }}</td>
                     <td>{{ k.direccion }}</td>
                     <td>{{ k.telefono }}</td>
+                    <td><a href="/kinesiologo/{{ k.id }}/editar">Actualizar</a></td>
+                    <td><a href="/kinesiologo/{{ k.id }}/delete">Eliminar</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -1,0 +1,100 @@
+{% load static %}
+
+<!-- Carga de las bibliotecas html2pdf y xlsx -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.10/xlsx.full.min.js"></script>
+
+<!-- Tu código HTML y script -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro Estadístico</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 8px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registro Estadístico</h1>
+    <footer>Descargar Historial de registro de atenciones</footer>
+    <button id="download-pdf">Descargar PDF</button>
+    <button id="download-excel">Descargar Excel</button>
+    <div id="external-content" class="hidden"></div>
+
+    <table id="table">
+        <!-- Aquí colocarías tu tabla con los datos -->
+    </table>
+    
+    <script>
+        document.getElementById("download-pdf").addEventListener("click", async function () {
+            const response = await fetch('/historial/historial');
+            const htmlContent = await response.text();
+            const externalContent = document.getElementById('external-content');
+            externalContent.innerHTML = htmlContent;
+            const tableElement = externalContent.querySelector(".table");
+            if (tableElement) {
+                const opt = {
+                    margin: 10,
+                    filename: "historial_atenciones.pdf",
+                    image: { type: "jpeg", quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+                };
+                html2pdf().from(tableElement).set(opt).save();
+                showMessage("PDF descargado exitosamente.", "success");
+            } else {
+                showMessage("No se encontró la tabla en el contenido cargado.", "error");
+            }
+        });
+
+        document.getElementById("download-excel").addEventListener("click", function () {
+            let element = document.getElementById('table');
+            const ws = XLSX.utils.table_to_sheet(element);
+
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+            const fileName = 'ExcelSheet.xlsx';
+
+            XLSX.writeFile(wb, fileName);
+
+            showMessage("Excel descargado exitosamente.", "success");
+        });
+
+        function showMessage(message, type) {
+            const messageDiv = document.createElement("div");
+            messageDiv.textContent = message;
+            messageDiv.className = `message ${type}`;
+            document.body.appendChild(messageDiv);
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
